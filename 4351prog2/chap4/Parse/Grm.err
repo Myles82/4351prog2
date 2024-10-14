@@ -1,0 +1,12 @@
+Opening files...
+Parsing specification from standard input...
+JavaCUP Fatal Internal Error Detected
+Duplicate terminal (EOF) created
+java_cup.internal_error: Duplicate terminal (EOF) created
+	at java_cup.terminal.<init>(terminal.java:38)
+	at java_cup.terminal.<init>(terminal.java:58)
+	at java_cup.CUP$parser$actions.CUP$parser$do_action(parser.java:632)
+	at java_cup.parser.do_action(parser.java:370)
+	at java_cup.runtime.lr_parser.parse(lr_parser.java:533)
+	at java_cup.Main.parse_grammar_spec(Main.java:411)
+	at java_cup.Main.main(Main.java:165)
