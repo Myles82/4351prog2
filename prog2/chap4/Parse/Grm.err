@@ -1,0 +1,172 @@
+Opening files...
+Parsing specification from standard input...
+Checking specification...
+Warning: Terminal "MINUS_MINUS" was declared but never used
+Warning: Terminal "SHORT" was declared but never used
+Warning: Terminal "SIGNED" was declared but never used
+Warning: Terminal "TIMES" was declared but never used
+Warning: Terminal "GT" was declared but never used
+Warning: Terminal "EQUAL_EQUAL" was declared but never used
+Warning: Terminal "CONST" was declared but never used
+Warning: Terminal "INT_LITERAL" was declared but never used
+Warning: Terminal "PLUS_EQUAL" was declared but never used
+Warning: Terminal "AND_EQUAL" was declared but never used
+Warning: Terminal "GE" was declared but never used
+Warning: Terminal "DOUBLE_RIGHT_ARROW" was declared but never used
+Warning: Terminal "REGISTER" was declared but never used
+Warning: Terminal "ENUM" was declared but never used
+Warning: Terminal "SIZEOF" was declared but never used
+Warning: Terminal "COMMA" was declared but never used
+Warning: Terminal "RBRACE" was declared but never used
+Warning: Terminal "RPAREN" was declared but never used
+Warning: Terminal "LT" was declared but never used
+Warning: Terminal "AND_AND" was declared but never used
+Warning: Terminal "BACKSPACE" was declared but never used
+Warning: Terminal "STRUCT" was declared but never used
+Warning: Terminal "LBRACE" was declared but never used
+Warning: Terminal "LPAREN" was declared but never used
+Warning: Terminal "POUND" was declared but never used
+Warning: Terminal "LE" was declared but never used
+Warning: Terminal "NIL" was declared but never used
+Warning: Terminal "STAR_EQUAL" was declared but never used
+Warning: Terminal "TILDA" was declared but never used
+Warning: Terminal "VAR" was declared but never used
+Warning: Terminal "FLOAT" was declared but never used
+Warning: Terminal "GOTO" was declared but never used
+Warning: Terminal "PLUS_PLUS" was declared but never used
+Warning: Terminal "EQ" was declared but never used
+Warning: Terminal "DOUBLE_LEFT_ARROW" was declared but never used
+Warning: Terminal "PLUS" was declared but never used
+Warning: Terminal "PERCENT" was declared but never used
+Warning: Terminal "DIVIDE" was declared but never used
+Warning: Terminal "B_OR" was declared but never used
+Warning: Terminal "WHILE" was declared but never used
+Warning: Terminal "UNION" was declared but never used
+Warning: Terminal "PERCENT_EQUAL" was declared but never used
+Warning: Terminal "ASSIGN" was declared but never used
+Warning: Terminal "CHAR" was declared but never used
+Warning: Terminal "OR_EQUAL" was declared but never used
+Warning: Terminal "SWITCH" was declared but never used
+Warning: Terminal "DO" was declared but never used
+Warning: Terminal "FOR" was declared but never used
+Warning: Terminal "STAR" was declared but never used
+Warning: Terminal "VOID" was declared but never used
+Warning: Terminal "EXTERN" was declared but never used
+Warning: Terminal "RETURN" was declared but never used
+Warning: Terminal "CARROT" was declared but never used
+Warning: Terminal "ELSE" was declared but never used
+Warning: Terminal "BREAK" was declared but never used
+Warning: Terminal "DOT" was declared but never used
+Warning: Terminal "INT" was declared but never used
+Warning: Terminal "SLASH_EQUAL" was declared but never used
+Warning: Terminal "SEMICOLON" was declared but never used
+Warning: Terminal "COMMENT" was declared but never used
+Warning: Terminal "POUND_POUND" was declared but never used
+Warning: Terminal "CARROT_EQUAL" was declared but never used
+Warning: Terminal "DEFAULT" was declared but never used
+Warning: Terminal "MINUS" was declared but never used
+Warning: Terminal "OR" was declared but never used
+Warning: Terminal "NOT_EQUAL" was declared but never used
+Warning: Terminal "CONTINUE" was declared but never used
+Warning: Terminal "MINUS_EQUAL" was declared but never used
+Warning: Terminal "IF" was declared but never used
+Warning: Terminal "UNSIGNED" was declared but never used
+Warning: Terminal "COLON" was declared but never used
+Warning: Terminal "DOUBLE_RIGHT_ARROW_EQUAL" was declared but never used
+Warning: Terminal "RBRACKET" was declared but never used
+Warning: Terminal "VOLATILE" was declared but never used
+Warning: Terminal "CASE" was declared but never used
+Warning: Terminal "STRING" was declared but never used
+Warning: Terminal "QUESTION_MARK" was declared but never used
+Warning: Terminal "AND" was declared but never used
+Warning: Terminal "STATIC" was declared but never used
+Warning: Terminal "LBRACKET" was declared but never used
+Warning: Terminal "TYPEDEF" was declared but never used
+Warning: Terminal "DOUBLE_LEFT_ARROW_EQUAL" was declared but never used
+Warning: Terminal "AUTO" was declared but never used
+Building parse tables...
+  Computing non-terminal nullability...
+  Computing first sets...
+  Building state machine...
+  Filling in tables...
+  Checking for non-reduced productions...
+Writing parser...
+===== Terminals =====
+MINUS_MINUS SHORT SIGNED TIMES GT 
+EQUAL_EQUAL CONST INT_LITERAL PLUS_EQUAL AND_EQUAL 
+GE DOUBLE_RIGHT_ARROW REGISTER ENUM SIZEOF 
+COMMA RBRACE RPAREN LT AND_AND 
+BACKSPACE STRUCT LBRACE LPAREN POUND 
+LE NIL STAR_EQUAL TILDA VAR 
+FLOAT GOTO PLUS_PLUS EQ DOUBLE_LEFT_ARROW 
+PLUS PERCENT DIVIDE B_OR WHILE 
+UNION PERCENT_EQUAL ASSIGN CHAR OR_EQUAL 
+SWITCH DO FOR STAR VOID 
+EXTERN RETURN CARROT ELSE BREAK 
+DOT INT SLASH_EQUAL EOF SEMICOLON 
+COMMENT POUND_POUND CARROT_EQUAL DEFAULT MINUS 
+OR error NOT_EQUAL CONTINUE MINUS_EQUAL 
+IF UNSIGNED ID COLON DOUBLE_RIGHT_ARROW_EQUAL 
+RBRACKET VOLATILE CASE STRING QUESTION_MARK 
+AND STATIC LBRACKET TYPEDEF DOUBLE_LEFT_ARROW_EQUAL 
+AUTO 
+
+===== Non terminals =====
+Exp $START Var 
+
+===== Productions =====
+Var ::= ID 
+Exp ::= Var 
+Exp ::= error 
+$START ::= Exp EOF 
+
+===== Viable Prefix Recognizer =====
+START lalr_state [0]: {
+  [Exp ::= (*) Var , {EOF }]
+  [Exp ::= (*) error , {EOF }]
+  [Var ::= (*) ID , {EOF }]
+  [$START ::= (*) Exp EOF , {EOF }]
+}
+transition on Var to state [4]
+transition on Exp to state [3]
+transition on error to state [2]
+transition on ID to state [1]
+
+-------------------
+lalr_state [1]: {
+  [Var ::= ID (*) , {EOF }]
+}
+
+-------------------
+lalr_state [2]: {
+  [Exp ::= error (*) , {EOF }]
+}
+
+-------------------
+lalr_state [3]: {
+  [$START ::= Exp (*) EOF , {EOF }]
+}
+transition on EOF to state [5]
+
+-------------------
+lalr_state [4]: {
+  [Exp ::= Var (*) , {EOF }]
+}
+
+-------------------
+lalr_state [5]: {
+  [$START ::= Exp EOF (*) , {EOF }]
+}
+
+-------------------
+Closing files...
+------- CUP v0.10g Parser Generation Summary -------
+  0 errors and 83 warnings
+  86 terminals, 3 non terminals, and 4 productions declared, 
+  producing 6 unique parse states.
+  83 terminals declared but not used.
+  0 non terminals declared but not used.
+  0 productions never reduced.
+  0 conflicts detected (3 expected).
+  Code written to "Grm.java", and "sym.java".
+---------------------------------------------------- (v0.10g)
